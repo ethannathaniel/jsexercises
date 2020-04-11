@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Comienza el HTML-->
+    <input id="box" type="text" placeholder="1234">
+    
+    <div>
+        <table id="tabla" width="100%" border="1">
+            <tr>
+                <thead>
+                    cristian resuelve
+                </thead>
+            </tr>
+            <tr>
+                <th>
+                    RESULTADO
+                </th>
+            </tr>
+        </table>
+        <button id="boton">muestra el resultado</button>
+    </div>
+    <!--Termina el HTML-->
+    <!--Comienza el javascript-->
+    <script language="javascript" type="text/javascript">
+////////////////////////////////////////////////////////////////////
+const input1 = prompt("ingrese 4 numeros para el primer proceso");
+const input2 = prompt("ingrese 4 numeros para el segundo proceso");
+
+
+function final(){
+    var uno = proceso(input1);
+    var dos = proceso(input2);
+    alert(`el uno es ${uno} y el dos es ${dos}`);
+};
+
+function proceso(input){
+
+        var inputr1 = parseInt(input[0]);
+        var inputr2 = parseInt(input[1]);
+        var inputr3 = parseInt(input[2]);
+        var inputr4 = parseInt(input[3]);
+        var primer = inputr1 + inputr2;
+        var second = inputr3 + inputr4;
+        var algo = `${primer}${second}`;
+    return algo;
+};
+
+
+
+/////////////////////////////////////////////////////////////////////
+        const boton = document.getElementById("boton");//declaro una variable la cual contendra al boton
+        boton.addEventListener("click",final)//agrego eventos y una funcion al boton
+        //aqui creo las funciones
+    function toma_suma(){//esta va a sumar los numeros
+
+        let valor = document.getElementById("box").value;//aqui agrego el valor del input en una variable
+        let primero = parseInt(valor[0])+ parseInt(valor[1]);//aqui se dividio los dos primeros digito(se estan sumando)
+        let segundo = parseInt(valor[2]) + parseInt(valor[3]);//aqui se dividio los dos segundos digito(se estan sumando)
+        let final = `${primero}${segundo}`;//aqui se concatenan
+         return final;
+    };
+        
+    function escribe(){//esta va a escribir en el DOM(en la tabla)
+        let doit = toma_suma();//aqui entro el valor que devuelve la funcion de arriba en una variable
+        
+     document.getElementById("tabla").insertRow(-1).innerHTML = `<tr><td>${doit}</td></tr>`;//asi se escribe en el DOM
+            
+    };
+    </script>
+    <!--Termina el javascript-->
+</body>
+</html>
